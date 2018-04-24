@@ -1,6 +1,7 @@
 import bodyParser from 'koa-bodyparser'
 import logger from 'koa-logger'
 import json from 'koa-json'
+import pug from 'koa-pug'
 import koa from 'koa'
 import route from './router'
 
@@ -10,6 +11,7 @@ class Application {
     constructor() {
         this.app = new koa()
         this.init()
+        this.boot()
         this.router()
     }
 
@@ -22,7 +24,15 @@ class Application {
     }
 
     boot() {
+        const pugInstance = new pug({
+            viewPath: './template',
+            debug: true,
+            pretty: false,
+            compileDebug: false,
+            noCache: true,
+        })
 
+        this.app.use(pugInstance.middleware)
     }
 
     router() {
