@@ -1,0 +1,41 @@
+{
+    "name": "turbo",
+    "version": "0.0.0",
+    "description": "Yet another Minecraft server manage panel",
+    "main": "src/index.js",
+    "repository": "https://github.com/Indexyz/Turbo.git",
+    "author": "Indexyz <jiduye@gmail.com>",
+    "license": "Apache-2.0",
+    "scripts": {
+        "start": "nodemon --inspect dist/bin/run.js",
+        "build": "babel src --out-dir dist --minified --ignore __tests__,__mocks__",
+        "watch": "gulp watch",
+        "lint": "eslint src"
+    },
+    "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-core": "^6.26.0",
+        "babel-eslint": "^8.2.3",
+        "babel-plugin-transform-class-properties": "^6.24.1",
+        "babel-plugin-transform-object-rest-spread": "^6.26.0",
+        "babel-preset-env": "^1.6.1",
+        "babel-register": "^6.26.0",
+        "eslint": "^4.19.1",
+        "eslint-config-babel": "^7.0.2",
+        "eslint-plugin-babel": "^5.1.0",
+        "eslint-plugin-flowtype": "^2.46.3",
+        "gulp": "^3.9.1",
+        "gulp-babel": "^7.0.1",
+        "jest": "^22.4.3",
+        "nodemon": "^1.17.3"
+    },
+    "dependencies": {
+        "chalk": "^2.4.0",
+        "config": "^1.30.0",
+        "koa": "^2.5.0",
+        "koa-bodyparser": "^4.2.0",
+        "koa-json": "^2.0.2",
+        "koa-logger": "^3.2.0",
+        "koa-router": "^7.4.0"
+    }
+}
