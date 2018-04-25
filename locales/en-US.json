@@ -2,6 +2,7 @@
     "header": {
         "index": "Index",
         "login": "Login",
-        "register": "Register"
+        "register": "Register",
+        "logout": "Log out"
     }
 }

@@ -2,6 +2,7 @@
     "header": {
         "index": "首页",
         "login": "登录",
-        "register": "注册"
+        "register": "注册",
+        "logout": "登出"
     }
 }

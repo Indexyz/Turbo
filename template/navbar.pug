@@ -16,4 +16,8 @@ block body
                 else
                     li
                         a(href="/dashboard")= user.username
+                        div(uk-dropdown="offset: -16")
+                            ul.uk-nav.uk-navbar-dropdown-nav
+                                li
+                                    a(href='/auth/logout')= __("header.logout")
     block main
