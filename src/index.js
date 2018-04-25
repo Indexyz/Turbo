@@ -1,5 +1,6 @@
 import bodyParser from 'koa-bodyparser'
 import logger from 'koa-logger'
+import serve from 'koa-static'
 import json from 'koa-json'
 import pug from 'koa-pug'
 import koa from 'koa'
@@ -32,6 +33,7 @@ class Application {
             noCache: true,
         })
 
+        this.app.use(serve('node_modules'))
         this.app.use(pugInstance.middleware)
     }
 

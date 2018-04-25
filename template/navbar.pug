@@ -1,0 +1,15 @@
+extends ./base
+
+block body
+    nav.uk-navbar-container(uk-navbar, style="height: 48px;")
+        .uk-navbar-left
+            ul.uk-navbar-nav
+                li.uk-active
+                    a(href='/') Index
+        .uk-navbar-right
+            ul.uk-navbar-nav
+                li
+                    a(href="/login") Login
+                li
+                    a(href="/register") Register
+    block main
