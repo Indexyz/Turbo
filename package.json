@@ -10,7 +10,8 @@
         "start": "nodemon --inspect dist/bin/run.js",
         "build": "babel src --out-dir dist --minified --ignore __tests__,__mocks__",
         "watch": "gulp watch",
-        "lint": "eslint src"
+        "lint": "eslint src",
+        "migrate": "migrate:latest"
     },
     "devDependencies": {
         "babel-cli": "^6.26.0",

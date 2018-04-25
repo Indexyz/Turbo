@@ -8,8 +8,12 @@ block body
                     a(href='/')= __("header.index")
         .uk-navbar-right
             ul.uk-navbar-nav
-                li
-                    a(href="/auth/login")= __("header.login")
-                li
-                    a(href="/auth/register")= __("header.register")
+                if !user
+                    li
+                        a(href="/auth/login")= __("header.login")
+                    li
+                        a(href="/auth/register")= __("header.register")
+                else
+                    li
+                        a(href="/dashboard")= user.username
     block main
