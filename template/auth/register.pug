@@ -1,4 +1,24 @@
 extends ../navbar
 
 block main
-    a.uk-button.uk-button-default(href="/auth/github") Auth via GitHub
+    br
+    h1(style="text-align: center;") Register
+    br
+    .uk-flex.uk-flex-center
+        .uk-card.uk-card-default.uk-card-body(style="")
+            form
+                .uk-margin
+                    .uk-inline
+                        span.uk-form-icon(uk-icon="icon: user")
+                        input.uk-input(type="text", placeholder="username")
+                .uk-margin
+                    .uk-inline
+                        span.uk-form-icon(uk-icon="icon: lock")
+                        input.uk-input(type="password", placeholder="password")
+                .uk-margin
+                    .uk-inline
+                        span.uk-form-icon(uk-icon="icon: mail")
+                        input.uk-input(type="text", placeholder="email")
+                a.uk-button.uk-button-default.uk-width-1-1.uk-button-primary Register
+            hr
+            a.uk-button.uk-button-default.uk-width-1-1.uk-button-secondary(href="/auth/github") Auth via GitHub

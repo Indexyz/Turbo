@@ -1,10 +1,6 @@
 import knex from 'knex'
+import knexSettings from '../../knexfile'
 
-const database = knex({
-    client: 'sqlite3',
-    connection: {
-        filename: './database.sqlite3',
-    },
-})
+const database = knex(knexSettings['development'])
 
 export default database
