@@ -1,4 +1,6 @@
 import bodyParser from 'koa-bodyparser'
+import passport from 'koa-passport'
+import session from 'koa-session'
 import logger from 'koa-logger'
 import serve from 'koa-static'
 import json from 'koa-json'
@@ -33,6 +35,10 @@ class Application {
             noCache: true,
         })
 
+        this.app.keys = ['secret']
+        this.app.use(session({}, this.app))
+        this.app.use(passport.initialize())
+        this.app.use(passport.session())
         this.app.use(serve('node_modules'))
         this.app.use(pugInstance.middleware)
     }

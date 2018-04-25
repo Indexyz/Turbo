@@ -1,4 +1,5 @@
 import router from 'koa-router'
+import auth from './auth'
 const route = router()
 
 route.get('/', async ctx => {
@@ -6,5 +7,7 @@ route.get('/', async ctx => {
         name: 'koa',
     })
 })
+
+route.use('/auth', auth.routes(), auth.allowedMethods())
 
 export default route
