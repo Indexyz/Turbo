@@ -62,3 +62,6 @@ typings/
 
 # babel Output
 dist/
+
+# sqlite database file
+database.sqlite3
