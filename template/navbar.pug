@@ -5,11 +5,11 @@ block body
         .uk-navbar-left
             ul.uk-navbar-nav
                 li.uk-active
-                    a(href='/') Index
+                    a(href='/')= __("header.index")
         .uk-navbar-right
             ul.uk-navbar-nav
                 li
-                    a(href="/auth/login") Login
+                    a(href="/auth/login")= __("header.login")
                 li
-                    a(href="/auth/register") Register
+                    a(href="/auth/register")= __("header.register")
     block main

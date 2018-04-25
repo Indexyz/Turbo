@@ -36,6 +36,7 @@
         "koa": "^2.5.0",
         "koa-bodyparser": "^4.2.0",
         "koa-json": "^2.0.2",
+        "koa-locales": "^1.8.0",
         "koa-logger": "^3.2.0",
         "koa-passport": "^4.0.1",
         "koa-pug": "^3.0.0-2",

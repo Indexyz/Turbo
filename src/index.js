@@ -1,10 +1,12 @@
 import bodyParser from 'koa-bodyparser'
 import passport from 'koa-passport'
 import session from 'koa-session'
+import locales from 'koa-locales'
 import logger from 'koa-logger'
 import serve from 'koa-static'
 import json from 'koa-json'
 import pug from 'koa-pug'
+import path from 'path'
 import koa from 'koa'
 import route from './router'
 
@@ -35,12 +37,21 @@ class Application {
             noCache: true,
         })
 
+        locales(this.app, {
+            dirs: [path.resolve(__dirname, '../locales/')],
+            defaultLocale: 'zh-CN',
+        })
         this.app.keys = ['secret']
         this.app.use(session({}, this.app))
         this.app.use(passport.initialize())
         this.app.use(passport.session())
         this.app.use(serve('node_modules'))
-        this.app.use(pugInstance.middleware)
+        pugInstance.use(this.app)
+
+        this.app.use(async (ctx, next) => {
+            pugInstance.locals.__ = ctx.__.bind(ctx)
+            await next()
+        })
     }
 
     router() {
