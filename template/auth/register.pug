@@ -22,3 +22,8 @@ block main
                 a.uk-button.uk-button-default.uk-width-1-1.uk-button-primary Register
             hr
             a.uk-button.uk-button-default.uk-width-1-1.uk-button-secondary(href="/auth/github") Auth via GitHub
+
+    script.
+        axios.post('/auth/register')
+            .then(data => console.log(data))
+            .catch(e => console.error(e))

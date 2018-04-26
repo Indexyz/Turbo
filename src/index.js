@@ -8,6 +8,7 @@ import json from 'koa-json'
 import pug from 'koa-pug'
 import path from 'path'
 import koa from 'koa'
+import service from './middleware/service'
 import route from './router'
 
 class Application {
@@ -55,6 +56,7 @@ class Application {
     }
 
     router() {
+        this.app.use(service)
         this.app.use(route.routes(), route.allowedMethods())
     }
 

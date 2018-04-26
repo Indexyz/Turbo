@@ -1,4 +1,7 @@
 import database from '../instance'
+import bcrypt from 'bcrypt'
+
+const SALT_ROUND = 10
 
 class User {
     async find(func) {
@@ -8,6 +11,10 @@ class User {
     }
 
     async create(dispath) {
+        if (dispath.password !== '') {
+            dispath.password = await bcrypt.hash(dispath.password, SALT_ROUND)
+        }
+
         const user = await database('users').insert(dispath)
 
         return await this.findById(user[0])
