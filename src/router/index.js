@@ -3,9 +3,7 @@ import auth from './auth'
 const route = router()
 
 route.get('/', async ctx => {
-    ctx.render('index', {
-        name: 'koa',
-    })
+    ctx.render('index')
 })
 
 route.use('/auth', auth.routes(), auth.allowedMethods())

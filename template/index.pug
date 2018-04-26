@@ -4,4 +4,35 @@ block title
     title Turbo - Index
 
 block main
-    h1 Hello, #{name}
+    .uk-offcanvas-content
+        .uk-section.uk-section-primary
+            .uk-section.uk-section-small.uk-flex.uk-flex-middle.uk-text-center
+                .uk-width-1-1
+                    .uk-container
+                        p.uk-margin-medium.uk-text-lead Yet another Minecraft server manage panel
+                        .uk-child-width-auto.uk-grid-medium.uk-flex-inline.uk-flex-center.uk-grid(uk-grid)
+                            .uk-first-column
+                                a.uk-button.uk-button-primary.uk-button-large Register Now
+                            div
+                                a.uk-button.uk-button-default.uk-button-large Login
+    .uk-offcanvas-content
+        .uk-section.uk-section-default
+            .uk-section.uk-section-small.uk-flex.uk-flex-middle.uk-text-center
+                .uk-width-1-1
+                    //- Pug not support @s in class
+                    div(uk-grid, class="uk-grid-collapse uk-child-width-expand@s uk-text-center", style="heigth: 100%")
+                        div
+                            span(uk-icon="icon: bolt; ratio: 3")
+                            p Fast
+                            p Access your server in everywhere
+                            br
+                        div
+                            span(uk-icon="icon: lock; ratio: 3")
+                            p Safe
+                            p Your data will protection by us
+                            br
+                        div
+                            span(uk-icon="icon: cog; ratio: 3")
+                            p Custom
+                            p Setting up different server
+                            br

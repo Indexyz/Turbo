@@ -21,7 +21,9 @@ block main
                         input.uk-input(type="text", placeholder="email", id="email")
                 button.uk-button.uk-button-default.uk-width-1-1.uk-button-primary(onclick="register()", id="registerButton") Register
             hr
-            a.uk-button.uk-button-default.uk-width-1-1.uk-button-secondary(href="/auth/github") Auth via GitHub
+            a.uk-button.uk-button-default.uk-width-1-1.uk-button-secondary(href="/auth/github")
+                span(uk-icon="github")
+                = "Register with GitHub"
 
     script.
         function register() {
