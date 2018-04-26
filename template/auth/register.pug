@@ -10,20 +10,39 @@ block main
                 .uk-margin
                     .uk-inline
                         span.uk-form-icon(uk-icon="icon: user")
-                        input.uk-input(type="text", placeholder="username")
+                        input.uk-input(type="text", placeholder="username", id="username")
                 .uk-margin
                     .uk-inline
                         span.uk-form-icon(uk-icon="icon: lock")
-                        input.uk-input(type="password", placeholder="password")
+                        input.uk-input(type="password", placeholder="password", id="password")
                 .uk-margin
                     .uk-inline
                         span.uk-form-icon(uk-icon="icon: mail")
-                        input.uk-input(type="text", placeholder="email")
-                a.uk-button.uk-button-default.uk-width-1-1.uk-button-primary Register
+                        input.uk-input(type="text", placeholder="email", id="email")
+                button.uk-button.uk-button-default.uk-width-1-1.uk-button-primary(onclick="register()", id="registerButton") Register
             hr
             a.uk-button.uk-button-default.uk-width-1-1.uk-button-secondary(href="/auth/github") Auth via GitHub
 
     script.
-        axios.post('/auth/register')
-            .then(data => console.log(data))
-            .catch(e => console.error(e))
+        function register() {
+            NProgress.start()
+            document.getElementById("registerButton").setAttribute("disabled", true)
+
+            axios.post('/auth/register', data = {
+                    username: document.getElementById('username').value,
+                    password: document.getElementById('password').value,
+                    email: document.getElementById('email').value
+                })
+                .then(function(data) {
+                    NProgress.done()
+                    document.getElementById("registerButton").removeAttribute("disabled")
+                    UIkit.notification("Register success! Redirecting")
+                    setTimeout(function() {
+                        window.location.href = "/auth/login"
+                    }, 1000)
+                })
+                .catch(function(error) {
+                    NProgress.done()
+                    document.getElementById("registerButton").removeAttribute("disabled")
+                })
+        }

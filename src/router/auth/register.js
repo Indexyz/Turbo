@@ -8,21 +8,20 @@ route.get('/', async ctx => {
 
 route.post('/', async ctx => {
     const schema = {
-        usename: joi.string().min(3).max(64).required(),
+        username: joi.string().min(3).max(64).required(),
         password: joi.string().min(6).required(),
         email: joi.string().email().required(),
     }
     let result = null
+    const body = ctx.request.body
 
     try {
-        result = await joi.validate(ctx.requests.body, schema)
+        result = await joi.validate(body, schema)
     } catch (error) {
-        console.log(error)
         ctx.status = 422
-        ctx.body = { message: error }
+        ctx.body = { message: error.details }
         return
     }
-    console.log(result)
     await ctx.service.user.create(result)
     ctx.status = 204
 })
