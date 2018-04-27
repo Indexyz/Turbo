@@ -1,0 +1,26 @@
+extends ../navbar
+
+block main
+    br
+    h1(style="text-align: center;") Register
+    br
+    .uk-flex.uk-flex-center
+        .uk-card.uk-card-default.uk-card-body(style="")
+            form
+                .uk-margin
+                    .uk-inline
+                        span.uk-form-icon(uk-icon="icon: user")
+                        input.uk-input(type="text", placeholder="username", id="username")
+                .uk-margin
+                    .uk-inline
+                        span.uk-form-icon(uk-icon="icon: lock")
+                        input.uk-input(type="password", placeholder="password", id="password")
+                .uk-margin
+                    .uk-inline
+                        span.uk-form-icon(uk-icon="icon: mail")
+                        input.uk-input(type="text", placeholder="email", id="email")
+                button.uk-button.uk-button-default.uk-width-1-1.uk-button-primary(onclick="register()", id="registerButton") Register
+            hr
+            a.uk-button.uk-button-default.uk-width-1-1.uk-button-secondary(href="/auth/github")
+                span(uk-icon="github")
+                = "Register with GitHub"

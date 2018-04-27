@@ -29,6 +29,12 @@ class User {
         return await this.find(async () =>
             database('users').where('githubId', id))
     }
+
+    async isRegisted(username, email) {
+        return (await this.find(async () =>
+            database('users').where('username', username).orWhere('email', email)
+        )) === null
+    }
 }
 
 export default new User()

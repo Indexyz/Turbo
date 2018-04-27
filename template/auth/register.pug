@@ -1,5 +1,8 @@
 extends ../navbar
 
+block title
+    title Turbo - Register
+
 block main
     br
     h1(style="text-align: center;") Register
@@ -20,10 +23,6 @@ block main
                         span.uk-form-icon(uk-icon="icon: mail")
                         input.uk-input(type="text", placeholder="email", id="email")
                 button.uk-button.uk-button-default.uk-width-1-1.uk-button-primary(onclick="register()", id="registerButton") Register
-            hr
-            a.uk-button.uk-button-default.uk-width-1-1.uk-button-secondary(href="/auth/github")
-                span(uk-icon="github")
-                = "Register with GitHub"
 
     script.
         function register() {

@@ -22,6 +22,16 @@ route.post('/', async ctx => {
         ctx.body = { message: error.details }
         return
     }
+
+    if (await ctx.service.user.isRegisted(result.username, result.email)) {
+        ctx.body = 403
+        ctx.body = {
+            message: [{
+                message: 'User is registed',
+            }],
+        }
+    }
+
     await ctx.service.user.create(result)
     ctx.status = 204
 })

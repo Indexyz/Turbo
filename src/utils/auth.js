@@ -18,20 +18,18 @@ passport.deserializeUser(async function(id, done) {
 const githubPassport = new github.Strategy({
     clientID: config.get('github.clientId'),
     clientSecret: config.get('github.clientScrect'),
-}, async function(token, tokenSecret, profile, done) {
+    passReqToCallback : true,
+}, async function(request, token, tokenSecret, profile, done) {
     const ghUser = await user.findByGitHub(profile.id)
 
-    if (ghUser === null) {
-        // create user
-        const u = await user.create({
-            githubId: profile.id,
-            username: profile.username,
-            email: '',
-            password: '',
-        })
-
-        return done(null, u)
+    if (requests.user) {
+        console.log(request.user)
     }
+
+    if (ghUser === null) {
+        return done(null, false)
+    }
+
     return done(null, ghUser)
 })
 
