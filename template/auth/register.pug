@@ -44,6 +44,20 @@ block main
                 })
                 .catch(function(error) {
                     NProgress.done()
+                    if (error.response) {
+                        if (error.response.status >= 500) {
+                            UIkit.notification("Internal Server Error", {status: 'warning'})
+                        } else {
+                            var messages = []
+
+                            for (var message in error.response.data.message) {
+                                message = error.response.data.message[message]
+                                messages.push(message.message)
+                            }
+
+                            UIkit.notification(messages.join('<br />'), {status: 'danger'})
+                        }
+                    }
                     document.getElementById("registerButton").removeAttribute("disabled")
                 })
         }

@@ -22,7 +22,7 @@ const githubPassport = new github.Strategy({
 }, async function(request, token, tokenSecret, profile, done) {
     const ghUser = await user.findByGitHub(profile.id)
 
-    if (requests.user) {
+    if (request.user) {
         console.log(request.user)
     }
 

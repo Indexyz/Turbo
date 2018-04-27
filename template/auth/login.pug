@@ -2,7 +2,7 @@ extends ../navbar
 
 block main
     br
-    h1(style="text-align: center;") Register
+    h1(style="text-align: center;") Login
     br
     .uk-flex.uk-flex-center
         .uk-card.uk-card-default.uk-card-body(style="")
@@ -15,12 +15,12 @@ block main
                     .uk-inline
                         span.uk-form-icon(uk-icon="icon: lock")
                         input.uk-input(type="password", placeholder="password", id="password")
-                .uk-margin
-                    .uk-inline
-                        span.uk-form-icon(uk-icon="icon: mail")
-                        input.uk-input(type="text", placeholder="email", id="email")
-                button.uk-button.uk-button-default.uk-width-1-1.uk-button-primary(onclick="register()", id="registerButton") Register
+                button.uk-button.uk-button-default.uk-width-1-1.uk-button-primary(onclick="login()", id="loginButton") login
             hr
             a.uk-button.uk-button-default.uk-width-1-1.uk-button-secondary(href="/auth/github")
                 span(uk-icon="github")
-                = "Register with GitHub"
+
+    script.
+        function login() {
+
+        }
