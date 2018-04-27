@@ -11,7 +11,8 @@
         "build": "babel src --out-dir dist --minified --ignore __tests__,__mocks__",
         "watch": "gulp watch",
         "lint": "eslint src",
-        "migrate": "knex migrate:latest"
+        "migrate": "knex migrate:latest",
+        "test": "npm run build && jest"
     },
     "devDependencies": {
         "babel-cli": "^6.26.0",
