@@ -19,8 +19,27 @@ block main
             hr
             a.uk-button.uk-button-default.uk-width-1-1.uk-button-secondary(href="/auth/github")
                 span(uk-icon="github")
-
+    include ../mixins/handles/requestErrorHandle
+    +handleError
     script.
         function login() {
-
+            NProgress.start()
+            document.getElementById("loginButton").setAttribute("disabled", true)
+            axios.post('/auth/login', data = {
+                    username: document.getElementById('username').value,
+                    password: document.getElementById('password').value,
+                })
+                .then(function(data) {
+                    NProgress.done()
+                    document.getElementById("loginButton").removeAttribute("disabled")
+                    UIkit.notification("Login success! Redirecting")
+                    setTimeout(function() {
+                        window.location.href = "/"
+                    }, 1000)
+                })
+                .catch(function(error) {
+                    NProgress.done()
+                    handlerError(error)
+                    document.getElementById("loginButton").removeAttribute("disabled")
+                })
         }

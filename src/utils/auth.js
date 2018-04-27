@@ -1,4 +1,5 @@
 import github from 'passport-github'
+import local from 'passport-local'
 import passport from 'koa-passport'
 import config from 'config'
 import user from '../database/service/user'
@@ -33,4 +34,9 @@ const githubPassport = new github.Strategy({
     return done(null, ghUser)
 })
 
+const localPassport = new local.Strategy(async (username, password, done) => {
+    return done(null, await user.login(username, passport))
+})
+
 passport.use(githubPassport)
+passport.user(localPassport)

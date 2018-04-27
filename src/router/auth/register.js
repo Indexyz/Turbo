@@ -19,14 +19,14 @@ route.post('/', async ctx => {
         result = await joi.validate(body, schema)
     } catch (error) {
         ctx.status = 422
-        ctx.body = { message: error.details }
+        ctx.body = { messages: error.details }
         return
     }
 
     if (await ctx.service.user.isRegisted(result.username, result.email)) {
         ctx.body = 403
         ctx.body = {
-            message: [{
+            messages: [{
                 message: 'User is registed',
             }],
         }

@@ -30,10 +30,26 @@ class User {
             database('users').where('githubId', id))
     }
 
+    async findByUsername(username) {
+        return await this.find(async () =>
+            database('users').where('username', username))
+    }
+
     async isRegisted(username, email) {
         return (await this.find(async () =>
             database('users').where('username', username).orWhere('email', email)
         )) === null
+    }
+
+    async login(username, password) {
+        const user = await this.findByUsername(username)
+
+        if (user === null) {
+            return null
+        }
+        if (await bcrypt.compare(password, user.password)) {
+            return user
+        }
     }
 }
 

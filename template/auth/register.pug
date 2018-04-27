@@ -24,6 +24,8 @@ block main
                         input.uk-input(type="text", placeholder="email", id="email")
                 button.uk-button.uk-button-default.uk-width-1-1.uk-button-primary(onclick="register()", id="registerButton") Register
 
+    include ../mixins/handles/requestErrorHandle
+    +handleError
     script.
         function register() {
             NProgress.start()
@@ -44,20 +46,7 @@ block main
                 })
                 .catch(function(error) {
                     NProgress.done()
-                    if (error.response) {
-                        if (error.response.status >= 500) {
-                            UIkit.notification("Internal Server Error", {status: 'warning'})
-                        } else {
-                            var messages = []
-
-                            for (var message in error.response.data.message) {
-                                message = error.response.data.message[message]
-                                messages.push(message.message)
-                            }
-
-                            UIkit.notification(messages.join('<br />'), {status: 'danger'})
-                        }
-                    }
+                    handleError(error)
                     document.getElementById("registerButton").removeAttribute("disabled")
                 })
         }
