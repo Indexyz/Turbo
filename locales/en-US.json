@@ -3,7 +3,7 @@
         "index": "Index",
         "login": "Login",
         "register": "Register",
-        "logout": "Log out",
+        "sign-out": "Sign out",
         "settings": "Settings",
         "dashboard": "Dashboard"
     }
