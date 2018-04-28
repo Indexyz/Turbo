@@ -18,14 +18,14 @@ block body
                         a(href="/dashboard")= __("header.dashboard")
                     li
                         a(href="#")= user.username
-                        .uk-navbar-dropdown(uk-dropdown="offset: -16", style="padding-top: 10px; padding-bottom: 10px;")
+                        .uk-navbar-dropdown(uk-dropdown="offset: 0", style="padding-top: 10px; padding-bottom: 10px;")
                             ul.uk-nav.uk-navbar-dropdown-nav
                                 li
                                     a(href='/auth/settings')
-                                        span(uk-icon="icon: settings", style="padding-right: 10px")
+                                        span.icon-before(uk-icon="icon: settings")
                                         = __("header.settings")
                                 li
                                     a(href='/auth/logout')
-                                        span(uk-icon="icon: sign-out", style="padding-right: 10px")
+                                        span.icon-before(uk-icon="icon: sign-out")
                                         = __("header.sign-out")
     block main

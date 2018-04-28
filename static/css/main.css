@@ -1,0 +1,13 @@
+.uk-navbar-nav > li > a {
+    height: 48px
+}
+
+.index-container {
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 16px;
+}
+
+.icon-before {
+    padding-right: 10px;
+}

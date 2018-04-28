@@ -1,0 +1,21 @@
+extends ../navbar
+
+block main
+    .index-container
+        div(uk-grid)
+            .uk-width-1-4(class="uk-visible@s")
+                .uk-card.uk-card-default.uk-card-body
+                    h3.uk-card-title Trubo
+                    ul.uk-nav-default.uk-nav-parent-icon(uk-nav)
+                        li
+                            a(href="/dashboard")
+                                span.icon-before(uk-icon="icon: home")
+                                = "Index"
+                            a(href="/dashboard/instances")
+                                span.icon-before(uk-icon="icon: server")
+                                = "Instances"
+                            a(href="/dashboard")
+                                span.icon-before(uk-icon="icon: code")
+                                = "Console"
+            div(class="uk-width-3-4@s")
+                block dashboard

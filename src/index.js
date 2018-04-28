@@ -47,6 +47,7 @@ class Application {
         this.app.use(passport.initialize())
         this.app.use(passport.session())
         this.app.use(serve('node_modules'))
+        this.app.use(serve('static'))
         pugInstance.use(this.app)
 
         this.app.use(async (ctx, next) => {

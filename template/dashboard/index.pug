@@ -1,0 +1,48 @@
+extends ./base
+
+block dashboard
+    div(class="uk-child-width-1-4@m uk-child-width-1-2" uk-grid)
+        div
+            .uk-card.uk-card-default.uk-card-body
+                p 账户余额
+                h3 30 CNY
+        div
+            .uk-card.uk-card-default.uk-card-body
+                p 运行实例数
+                h3 1
+        div
+            .uk-card.uk-card-default.uk-card-body
+                p 已用内存
+                h3 1 GiB
+        div
+            .uk-card.uk-card-default.uk-card-body
+                p 玩家数量
+                h3 32
+    div.uk-child-width-1-1(uk-grid class="uk-child-width-1-2@m")
+        div
+            .uk-card.uk-card-default.uk-card-body
+                h3.uk-card-title 站点公告
+                p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        div
+            .uk-card.uk-card-default.uk-card-body
+                h3.uk-card-title 在线人数
+                div#chart
+
+    script.
+        const data = {
+            labels: ["12am-3am", "3am-6pm", "6am-9am", "9am-12am",
+                "12pm-3pm", "3pm-6pm", "6pm-9pm", "9am-12am"
+        ], datasets: [
+                {
+                    type: "bar",
+                    values: [25, 40, 30, 35, 8, 52, 17, 32]
+                },
+            ]
+        }
+
+        const chart = new frappe.Chart("#chart", {  // or a DOM element,
+            data: data,
+            type: 'axis-mixed', // or 'bar', 'line', 'scatter', 'pie', 'percentage'
+            height: 300,
+            colors: ['#7cd6fd', '#743ee2']
+        })
