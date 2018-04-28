@@ -12,7 +12,7 @@
         "watch": "gulp watch",
         "lint": "eslint src",
         "migrate": "knex migrate:latest",
-        "test": "npm run build && jest"
+        "test": "jest"
     },
     "devDependencies": {
         "babel-cli": "^6.26.0",
@@ -35,6 +35,7 @@
     },
     "dependencies": {
         "axios": "^0.18.0",
+        "babel-jest": "^22.4.3",
         "bcrypt": "^2.0.1",
         "chalk": "^2.4.0",
         "config": "^1.30.0",
