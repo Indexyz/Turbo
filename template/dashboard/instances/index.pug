@@ -6,13 +6,23 @@ block dashboard
             tr
                 th #
                 th Name
+                th Status
                 th.uk-width-small Actions
         tbody
             tr
                 td 1
                 td Test Server
                 td
+                    span.uk-icon-button(uk-icon="close", uk-tooltip="title: Stopped; pos: bottom")
+                td
+                    a.uk-button.uk-button-default Manage
+            tr
+                td 2
+                td Test Server
+                td
+                    span.uk-icon-button(uk-icon="more", uk-tooltip="title: Creating; pos: bottom")
+                td
                     a.uk-button.uk-button-default Manage
     hr.uk-divider-icon
     .uk-flex.uk-flex-right
-        a.uk-button.uk-button-default New Server
+        a.uk-button.uk-button-default(href="/dashboard/instances/create") New Server
