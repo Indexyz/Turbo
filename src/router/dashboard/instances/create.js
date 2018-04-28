@@ -5,4 +5,8 @@ route.get('/', async ctx => {
     ctx.render('dashboard/instances/create')
 })
 
+// route.post('/', async ctx => {
+
+// })
+
 export default route

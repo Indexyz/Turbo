@@ -5,8 +5,9 @@ exports.up = function(knex) {
         table.integer('userId')
         table.integer('status')
         table.integer('port')
-        table.integer('containerId')
+        table.string('containerId')
         table.integer('playerCount')
+        table.float('memories')
         table.timestamp('created_at').defaultTo(knex.fn.now())
     })
 }
