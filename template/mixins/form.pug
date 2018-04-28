@@ -1,0 +1,30 @@
+mixin formString(id, name, value)
+    div.uk-margin
+        label.uk-form-label(for=id)= name
+        .uk-form-controls
+            input.uk-input(id=id, type="text", placeholder=name, value=value)
+
+mixin formCheckbox(id, name, value)
+    div.uk-margin
+        label.uk-form-label(for=id)= name
+        .uk-form-controls
+            if value == true
+                input.uk-checkbox(type="checkbox", id=id, checked)
+            else
+                input.uk-checkbox(type="checkbox", id=id)
+
+mixin formRange(id, name, max, min, step, value)
+    div.uk-margin
+        label.uk-form-label(for=id)= name
+        .uk-form-controls
+            input.uk-range(type="range", id=id, value=value min=min max=max step=step, oninput="change" + id + "()" onchange="change" + id + "()")
+            div(uk-drop="mode: click", id="dropdown" + id)
+
+            script.
+                function change#{id}() {
+                    var source = document.getElementById('#{id}')
+                    var dropdown = document.getElementById('dropdown#{id}')
+                    dropdown.innerHTML = String(source.value)
+                    UIkit.drop(dropdown).show();
+                }
+    br
