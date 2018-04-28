@@ -4,6 +4,7 @@
         "login": "Login",
         "register": "Register",
         "logout": "Log out",
-        "settings": "Settings"
+        "settings": "Settings",
+        "dashboard": "Dashboard"
     }
 }

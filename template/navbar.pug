@@ -15,8 +15,10 @@ block body
                         a(href="/auth/register")= __("header.register")
                 else
                     li
-                        a(href="/dashboard")= user.username
-                        div(uk-dropdown="offset: -16", style="padding-top: 10px; padding-bottom: 10px;")
+                        a(href="/dashboard")= __("header.dashboard")
+                    li
+                        a(href="#")= user.username
+                        .uk-navbar-dropdown(uk-dropdown="offset: -16", style="padding-top: 10px; padding-bottom: 10px;")
                             ul.uk-nav.uk-navbar-dropdown-nav
                                 li
                                     a(href='/auth/profile')= __("header.settings")

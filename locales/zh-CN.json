@@ -4,6 +4,7 @@
         "login": "登录",
         "register": "注册",
         "logout": "登出",
-        "settings": "设置"
+        "settings": "设置",
+        "dashboard": "控制台"
     }
 }
