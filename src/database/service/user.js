@@ -47,9 +47,15 @@ class User {
         if (user === null) {
             return null
         }
+
         if (await bcrypt.compare(password, user.password)) {
             return user
         }
+    }
+
+    async bindGitHub(userId, githubId) {
+        await database('users').where('id', userId)
+            .update('githubId', githubId)
     }
 }
 

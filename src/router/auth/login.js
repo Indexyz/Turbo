@@ -7,22 +7,30 @@ route.get('/', async ctx => {
 })
 
 route.post('/', async ctx => {
-    passport.authenticate('local', {}, async (err, user, info) => {
-        if (err) {
-            ctx.status = 500
-            return
-        }
-
-        if (!user) {
-            ctx.status = 401
-            ctx.body = {
-                messages: [{
-                    message: info.message,
-                }],
+    try {
+        await passport.authenticate('local', async (err, user) => {
+            if (err) {
+                ctx.status = 500
+                return
             }
-        }
-        ctx.status = 204
-    }, ctx)
+
+            if (!user) {
+                ctx.status = 401
+                ctx.body = {
+                    messages: [{
+                        message: 'User not found',
+                    }],
+                }
+                return
+            }
+
+            ctx.login(user)
+            ctx.status = 204
+        })(ctx)
+    } catch (e) {
+        console.log(e)
+        ctx.status = 500
+    }
 })
 
 export default route

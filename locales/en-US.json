@@ -3,6 +3,7 @@
         "index": "Index",
         "login": "Login",
         "register": "Register",
-        "logout": "Log out"
+        "logout": "Log out",
+        "settings": "Settings"
     }
 }

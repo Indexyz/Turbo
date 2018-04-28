@@ -24,7 +24,10 @@ const githubPassport = new github.Strategy({
     const ghUser = await user.findByGitHub(profile.id)
 
     if (request.user) {
-        console.log(request.user)
+        if (request.user.githubId === null) {
+            await user.bindGitHub(request.user.id, profile.id)
+            return done(null, request.user)
+        }
     }
 
     if (ghUser === null) {
@@ -35,8 +38,8 @@ const githubPassport = new github.Strategy({
 })
 
 const localPassport = new local.Strategy(async (username, password, done) => {
-    return done(null, await user.login(username, passport))
+    return done(null, await user.login(username, password))
 })
 
 passport.use(githubPassport)
-passport.user(localPassport)
+passport.use(localPassport)

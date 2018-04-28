@@ -39,7 +39,7 @@ block main
                 })
                 .catch(function(error) {
                     NProgress.done()
-                    handlerError(error)
+                    handleError(error)
                     document.getElementById("loginButton").removeAttribute("disabled")
                 })
         }

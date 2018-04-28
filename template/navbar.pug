@@ -16,8 +16,10 @@ block body
                 else
                     li
                         a(href="/dashboard")= user.username
-                        div(uk-dropdown="offset: -16")
+                        div(uk-dropdown="offset: -16", style="padding-top: 10px; padding-bottom: 10px;")
                             ul.uk-nav.uk-navbar-dropdown-nav
+                                li
+                                    a(href='/auth/profile')= __("header.settings")
                                 li
                                     a(href='/auth/logout')= __("header.logout")
     block main
