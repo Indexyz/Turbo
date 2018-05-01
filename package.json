@@ -39,6 +39,7 @@
         "bcrypt": "^2.0.1",
         "chalk": "^2.4.0",
         "config": "^1.30.0",
+        "dockerode": "^2.5.5",
         "frappe-charts": "^1.1.0",
         "joi": "^13.2.0",
         "knex": "^0.14.6",

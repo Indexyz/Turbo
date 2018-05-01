@@ -2,5 +2,6 @@
     "github": {
         "clientId": "",
         "clientScrect": ""
-    }
+    },
+    "docker": "192.168.1.105:2376"
 }
