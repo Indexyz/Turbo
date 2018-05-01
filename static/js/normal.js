@@ -69,7 +69,7 @@ function createInstance() {
     }
     NProgress.start()
     document.getElementById("createInstanceButton").setAttribute("disabled", true)
-    axios.post('/auth/register', data = {
+    axios.post('/dashboard/instances/create', data = {
             name: document.getElementById('name').value,
             autoRestart: document.getElementById('auto-restart').checked,
             memoires: document.getElementById('memoires').value
@@ -79,7 +79,7 @@ function createInstance() {
             document.getElementById("createInstanceButton").removeAttribute("disabled")
             UIkit.notification("Create success! Redirecting")
             setTimeout(function() {
-                window.location.href = "dashboard/instances"
+                window.location.href = "/dashboard/instances"
             }, 1000)
         })
         .catch(function(error) {
