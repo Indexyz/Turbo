@@ -1,28 +1,33 @@
 extends ../base
 
 block dashboard
-    table.uk-table.uk-table-middle.uk-table-divider.uk-table-hover
-        thead
-            tr
-                th #
-                th Name
-                th Status
-                th.uk-width-small Actions
-        tbody
-            tr
-                td 1
-                td Test Server
-                td
-                    span.uk-icon-button(uk-icon="close", uk-tooltip="title: Stopped; pos: bottom")
-                td
-                    a.uk-button.uk-button-default Manage
-            tr
-                td 2
-                td Test Server
-                td
-                    span.uk-icon-button(uk-icon="more", uk-tooltip="title: Creating; pos: bottom")
-                td
-                    a.uk-button.uk-button-default Manage
+    div.uk-child-width-1-1(uk-grid class="uk-child-width-1-2@m")
+        div
+            .uk-card.uk-card-default
+                .uk-card-header
+                    .uk-card-title.uk-margin-remove-bottom Example Server
+                .uk-card-body
+                    p Status:&nbsp;&nbsp;&nbsp;
+                        span.uk-icon-button(uk-icon="close", uk-tooltip="title: Stopped; pos: bottom")
+                .uk-card-footer
+                    span.uk-icon-button(uk-icon="refresh", uk-tooltip="title: Restart; pos: bottom")
+                    span.uk-icon-button(uk-icon="play", uk-tooltip="title: Start; pos: bottom")
+                    span.uk-icon-button(uk-icon="trash", uk-tooltip="title: Delete; pos: bottom")
+                    span.uk-icon-button(uk-icon="pencil", uk-tooltip="title: Edit; pos: bottom")
+
+        div
+            .uk-card.uk-card-default
+                .uk-card-header
+                    .uk-card-title.uk-margin-remove-bottom Example Server
+                .uk-card-body
+                    p Status:&nbsp;&nbsp;&nbsp;
+                        span.uk-icon-button(uk-icon="check", uk-tooltip="title: Running; pos: bottom")
+                .uk-card-footer
+                    span.uk-icon-button(uk-icon="refresh", uk-tooltip="title: Restart; pos: bottom")
+                    span.uk-icon-button(uk-icon="close", uk-tooltip="title: Stop; pos: bottom")
+                    span.uk-icon-button(uk-icon="trash", uk-tooltip="title: Delete; pos: bottom")
+                    span.uk-icon-button(uk-icon="pencil", uk-tooltip="title: Edit; pos: bottom")
+
     hr.uk-divider-icon
     .uk-flex.uk-flex-right
         a.uk-button.uk-button-default(href="/dashboard/instances/create") New Server

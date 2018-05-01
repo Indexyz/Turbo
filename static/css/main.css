@@ -11,3 +11,8 @@
 .icon-before {
     padding-right: 10px;
 }
+
+
+.uk-card-footer > span {
+    margin-right: 8px;
+}
