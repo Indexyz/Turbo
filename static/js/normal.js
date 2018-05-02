@@ -72,7 +72,7 @@ function createInstance() {
     axios.post('/dashboard/instances/create', data = {
             name: document.getElementById('name').value,
             autoRestart: document.getElementById('auto-restart').checked,
-            memoires: document.getElementById('memoires').value
+            memories: document.getElementById('memories').value
         })
         .then(function(data) {
             NProgress.done()

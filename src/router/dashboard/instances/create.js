@@ -10,11 +10,12 @@ route.post('/', async ctx => {
     const schema = {
         name: joi.string().min(3).max(64).required(),
         autoRestart: joi.boolean().required(),
-        memoires: joi.number().min(0).required(),
+        memories: joi.number().min(0).required(),
     }
     let result = null
     const body = ctx.request.body
 
+    body.userId = ctx.state.user.id
     try {
         result = await joi.validate(body, schema)
     } catch (error) {
@@ -25,6 +26,7 @@ route.post('/', async ctx => {
     const inst = await ctx.service.instance.create(result)
 
     console.log(inst)
+    ctx.status = 204
 })
 
 export default route
