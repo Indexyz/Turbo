@@ -14,7 +14,7 @@ class User extends basicService {
             dispath.password = await bcrypt.hash(dispath.password, SALT_ROUND)
         }
 
-        return super(dispath)
+        return await basicService.prototype.create.call(this, [dispath])
     }
 
     async findByGitHub(id) {

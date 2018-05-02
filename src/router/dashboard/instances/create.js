@@ -22,7 +22,9 @@ route.post('/', async ctx => {
         ctx.body = { messages: error.details }
         return
     }
-    console.log(result)
+    const inst = await ctx.service.instance.create(result)
+
+    console.log(inst)
 })
 
 export default route
