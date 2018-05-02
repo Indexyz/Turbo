@@ -1,6 +1,7 @@
 import database from '../instance'
+import basicService from './basic'
 
-class Instance {
+class Instance extends basicService {
     async getUserOwner(userId) {
         return await database('instances').where('userId', userId)
     }

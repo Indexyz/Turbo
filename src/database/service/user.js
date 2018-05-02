@@ -1,28 +1,16 @@
 import database from '../instance'
+import basicService from './basic'
 import bcrypt from 'bcrypt'
 
 const SALT_ROUND = 10
 
-class User {
-    async find(func) {
-        const user = await func()
-
-        return user.length >= 1 ? user[0] : null
-    }
-
+class User extends basicService {
     async create(dispath) {
         if (dispath.password !== '') {
             dispath.password = await bcrypt.hash(dispath.password, SALT_ROUND)
         }
 
-        const user = await database('users').insert(dispath)
-
-        return await this.findById(user[0])
-    }
-
-    async findById(id) {
-        return await this.find(async () =>
-            database('users').where('id', id))
+        return super(dispath)
     }
 
     async findByGitHub(id) {
