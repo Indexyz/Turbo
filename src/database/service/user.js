@@ -5,6 +5,10 @@ import bcrypt from 'bcrypt'
 const SALT_ROUND = 10
 
 class User extends basicService {
+    get databaseName() {
+        return 'users'
+    }
+
     async create(dispath) {
         if (dispath.password !== '') {
             dispath.password = await bcrypt.hash(dispath.password, SALT_ROUND)
